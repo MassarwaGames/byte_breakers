@@ -7,9 +7,10 @@
 ### 🔹 פרטי המפתח 🔹
 - **שם**: עבד אל כרים מסארוה
 - **תעודת זהות**: `319071379`
-- [**📄 קישור ל-formal-elements.md**](https://github.com/MassarwaGames/byte-breakers/blob/main/formal-elements.md)
-- [**📄 קישור ל-formal-elements_EN.md**](https://github.com/MassarwaGames/byte-breakers/blob/main/formal-elements_EN.md)
+- [**📄 קישור ל-formal-elements.md**](https://github.com/MassarwaGames/byte_breakers/blob/main/formal-elements.md)
+- [**📄 קישור ל-formal-elements_EN.md**](https://github.com/MassarwaGames/byte_breakers/blob/main/formal-elements_EN.md)
 
 ---
 
 👾 **הצטרפו להרפתקה דיגיטלית ולמדו קידוד בצורה מהנה!**
+
