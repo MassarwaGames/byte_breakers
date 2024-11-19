@@ -5,6 +5,8 @@
    - **Tagline**: *Code your way through a digital adventure, solve puzzles, and master the basics of programming!*
 
 ---
+![Code Quest image](./byte_breakers_image.webp)
+
 
 ## 🎮 Game Concept
 *Byte Breakers* is a coding puzzle game set in a futuristic digital world. Players use basic coding skills to overcome obstacles like locked doors, broken bridges, and malfunctioning robots. With each level, they learn new programming concepts through interactive challenges, making coding both fun and accessible.
