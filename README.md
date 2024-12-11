@@ -14,6 +14,7 @@
 ---
 
 👾 **הצטרפו להרפתקה דיגיטלית ולמדו קידוד בצורה מהנה!**
+
 **Credits**:  
 - **Nemezes**: Angry Man player asset  
 - **Brian MacIntosh**: Wooden door asset  
