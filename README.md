@@ -1,6 +1,6 @@
 # 🌐 Byte Breakers 🌐
 
-**Itch.io Link**: [https://blackeswadeh.itch.io/realm-of-the-mourning-star](https://blackeswadeh.itch.io/byte-breakers)
+**Itch.io Link**: [https://blackeswadeh.itch.io/byte-breakers](https://blackeswadeh.itch.io/byte-breakers)
 
 **Byte Breakers** הוא משחק הרפתקאות דיגיטלי בו השחקן משתמש ביכולות קידוד בסיסיות כדי לפתור חידות ולצלוח מכשולים כמו שערים נעולים, גשרים שבורים ורובוטים מקולקלים. במסע בעולם דיגיטלי עתידני, השחקן לומד מושגי תכנות בצורה כיפית ונגישה, ומתקדם דרך שלבים המעשירים את כישורי התכנות שלו.
 
