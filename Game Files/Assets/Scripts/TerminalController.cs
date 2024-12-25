@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 /// <summary>
 /// Handles terminal interaction, code validation, and syntax feedback.
@@ -18,14 +19,15 @@ public class TerminalController : MonoBehaviour
     [SerializeField, Tooltip("Hint text to guide the player.")]
     private TMP_Text hintText;
 
-    [SerializeField, Tooltip("The door object to unlock.")]
-    private GameObject door;
-
     [SerializeField, Tooltip("Key to interact with the terminal.")]
     private KeyCode interactKey = KeyCode.F;
 
+    [SerializeField, Tooltip("Audio source for victory sound.")]
+    private AudioSource victoryAudioSource;
+
     private bool isPlayerNearby = false; // Tracks if the player is near the terminal
-    private const string correctSyntax = "door.unlock();"; // The correct code syntax
+    private const string treeBurnSyntax = "tree.burn();"; // Command for burning a tree
+    private const string doorUnlockSyntax = "door.unlock();"; // Command for unlocking a door
 
     private void Start()
     {
@@ -34,10 +36,10 @@ public class TerminalController : MonoBehaviour
             submitButton.onClick.AddListener(ValidateCode);
         }
 
-        if (feedbackText != null)
-        {
-            feedbackText.text = "Waiting for input...";
-        }
+        //if (feedbackText != null)
+        //{
+        //    feedbackText.text = "Waiting for input...";
+        //}
 
         if (hintText != null)
         {
@@ -56,7 +58,7 @@ public class TerminalController : MonoBehaviour
             ShowUI(true); // Show the input field and button
             if (hintText != null)
             {
-                hintText.text = "Hint: Use 'door.unlock();' to open the door.";
+                hintText.text = "Hint: Use 'tree.burn();' to burn the tree or 'door.unlock();' to unlock the door.";
             }
         }
     }
@@ -93,25 +95,57 @@ public class TerminalController : MonoBehaviour
 
     private void ValidateCode()
     {
-        if (codeInputField == null || feedbackText == null || door == null) return;
+        if (codeInputField == null || feedbackText == null) return;
 
         string enteredCode = codeInputField.text.Trim();
 
-        if (enteredCode == correctSyntax) // Validate proper syntax
+        if (enteredCode == treeBurnSyntax)
         {
-            feedbackText.text = "Code Accepted! Door Unlocked.";
-            UnlockDoor();
+            HandleAction("Tree", "The tree is burning!");
+        }
+        else if (enteredCode == doorUnlockSyntax)
+        {
+            HandleAction("Door", "The door is unlocking!");
         }
         else
         {
-            feedbackText.text = "Syntax Error: Check your code and try again.";
+            feedbackText.text = "Invalid command. Try again.";
+            StartCoroutine(HideFeedbackTextAfterDelay(3f)); // Hide after 3 seconds
         }
     }
 
-    private void UnlockDoor()
+    private void HandleAction(string tag, string successMessage)
     {
-        // Disable the door object to simulate unlocking
-        door.SetActive(false);
+        GameObject targetObject = GameObject.FindGameObjectWithTag(tag);
+        if (targetObject != null)
+        {
+            feedbackText.text = $"Code Accepted! {successMessage}";
+            victoryAudioSource.Play();
+            StartCoroutine(HideFeedbackTextAfterDelay(3f)); // Hide after 3 seconds
+
+            // Check if the target object has a BurnableTree or similar component
+            var burnable = targetObject.GetComponent<BurnableTree>();
+            if (burnable != null)
+            {
+                burnable.Burn();
+            }
+            else
+            {
+                // If no BurnableTree component, disable the object (e.g., for doors)
+                targetObject.SetActive(false);
+            }
+        }
+        else
+        {
+            feedbackText.text = $"Error: No {tag} found in the scene.";
+            StartCoroutine(HideFeedbackTextAfterDelay(3f)); // Hide after 3 seconds
+        }
+    }
+
+    private IEnumerator HideFeedbackTextAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        feedbackText.text = ""; // Clear the text
     }
 
     private void ShowUI(bool show)
