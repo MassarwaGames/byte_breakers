@@ -110,12 +110,18 @@ public class TerminalController : MonoBehaviour
             {
                 objectivePanel.gameObject.SetActive(false);
             }
+
+            // Optional: Add score for success
+            GameManager.Instance.AddScore(100); // Add 100 points
         }
         else
         {
             feedbackText.text = "Invalid command. Try again.";
             feedbackText.color = new Color32(255, 69, 0, 255); // Bright Red (#FF4500)
             failureAudioSource.Play();
+
+            // Reduce lives on incorrect command
+            GameManager.Instance.ReduceLives();
         }
     }
 
