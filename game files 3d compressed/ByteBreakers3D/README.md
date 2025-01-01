@@ -32,6 +32,19 @@ Explore a carefully crafted 3D world! 🏡 The main objective is to interact wit
 - **🎵 Audio Enhancements**:
   - Background music for an immersive experience.
   - Success and failure audio cues for feedback.
+ 
+  - - **Life System**:
+  - Start with 3 hearts.
+  - Lose a heart on invalid commands.
+  - Transition to a **Game Over Scene** after losing all lives.
+
+- **Dynamic Score System**:
+  - Start with 0 points.
+  - Gain 100 points for every successful terminal command.
+
+- **Audio and Feedback**:
+  - Collectibles play sounds and display welcome messages.
+  - Background music enhances the **Game Over Scene**.
 
 ---
 
@@ -93,3 +106,92 @@ This project is for educational and personal use. Feel free to explore the code 
 - 🔧 Enhanced compatibility for all WebGL-supported browsers.
 
 ---
+# 📜📜📜 **UML CHART**
+
++--------------------+           +--------------------+
+|      GameManager   |           |      UIManager     |
++--------------------+           +--------------------+
+| - score: int       |           | - feedbackText     |
+| - lives: int       |           | - hearts[]: GameObj|
+| + AddScore()       |<---------+| + UpdateScore()    |
+| + ReduceLives()    |           | + UpdateLives()    |
+| + GameOver()       |           | + DisplayMessage() |
++--------------------+           +--------------------+
+
+            ^                             ^
+            |                             |
++--------------------+           +--------------------+
+| TerminalController |           | WelcomeCollectible |
++--------------------+           +--------------------+
+| - isPlayerNearby   |           | - collectSound     |
+| - interactKey      |           | + OnTriggerEnter() |
+| + ValidateCode()   |           |                    |
+| + RaiseHouse()     |           +--------------------+
+
+                    ^
+                    |
++--------------------+         +--------------------+
+|   PlayerMovement   |         | GameOverManager    |
++--------------------+         +--------------------+
+| - moveSpeed        |         | + RestartGame()    |
+| - rotationSpeed    |         | + QuitGame()       |
+| + MovePlayer()     |         +--------------------+
+
+                    ^
+                    |
++--------------------+
+|  PlayerAlignment   |
++--------------------+
+| + AlignToGround()  |
++--------------------+
+
+# **Playtesting 🕹️**
+
+To ensure the game runs smoothly and provides the intended experience, follow these steps to playtest:
+
+### **1. Test Gameplay Mechanics** 🔄
+- **Player Movement**: 
+  - Use **W, A, S, D** keys to move the player around the environment.
+  - Confirm smooth transitions over terrain and obstacles.
+- **Terminal Interaction**:
+  - Press **F** near a terminal to activate it.
+  - Type commands like `house.raise();` and verify the house raises successfully.
+  - Try invalid commands to ensure lives decrease properly.
+
+### **2. Test Collectibles and Feedback** ✨
+- **Collect the Shiny Sphere**:
+  - Ensure the collectible disappears upon collection.
+  - Confirm the welcome message appears and plays the audio.
+
+### **3. Test UI Updates** 📊
+- **Score**:
+  - Verify the score starts at **0** and updates correctly for valid commands.
+- **Hearts**:
+  - Confirm the hearts decrease for invalid commands and disappear upon losing lives.
+- **Game Over**:
+  - Check that losing all hearts transitions to the Game Over scene.
+
+### **4. Test Scenes** 🌌
+- **Game Over Scene**:
+  - Confirm the transition displays a black screen with a large "Game Over" message.
+  - Test the restart functionality to ensure it reloads the main gameplay scene.
+
+### **5. Browser Testing** 🌐
+- **WebGL Compatibility**:
+  - Test the game on multiple browsers (e.g., Firefox, Chrome).
+  - Verify performance and shader compatibility.
+
+### **6. Optional Feedback** 📝
+- Gather feedback from friends or peers:
+  - Was the game intuitive to play?
+  - Did they encounter any bugs?
+  - What did they enjoy most?
+
+---
+
+## **Known Issues** ⚠️
+If applicable, add any known issues here, such as:
+- The game may experience minor visual glitches on **Chrome** due to WebGL compatibility.
+
+
+
