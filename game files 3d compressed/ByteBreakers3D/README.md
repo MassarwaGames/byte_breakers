@@ -81,7 +81,7 @@ Explore a carefully crafted 3D world! 🏡 The main objective is to interact wit
 
 ## 🎨 **Credits**
 
-- **Developer**: [Your Name or Team Name] 👨‍💻👩‍💻
+- **Developer**: Abed El Kareem Massarwa 👨‍💻👩‍💻
 - **Special Thanks**: Unity community and tutorial contributors for guidance and assets. 🙌
 
 ---
@@ -108,42 +108,11 @@ This project is for educational and personal use. Feel free to explore the code 
 ---
 # 📜📜📜 **UML CHART**
 
-+--------------------+           +--------------------+
-|      GameManager   |           |      UIManager     |
-+--------------------+           +--------------------+
-| - score: int       |           | - feedbackText     |
-| - lives: int       |           | - hearts[]: GameObj|
-| + AddScore()       |<---------+| + UpdateScore()    |
-| + ReduceLives()    |           | + UpdateLives()    |
-| + GameOver()       |           | + DisplayMessage() |
-+--------------------+           +--------------------+
+## UML Diagram 📊
 
-            ^                             ^
-            |                             |
-+--------------------+           +--------------------+
-| TerminalController |           | WelcomeCollectible |
-+--------------------+           +--------------------+
-| - isPlayerNearby   |           | - collectSound     |
-| - interactKey      |           | + OnTriggerEnter() |
-| + ValidateCode()   |           |                    |
-| + RaiseHouse()     |           +--------------------+
+The UML diagram below illustrates the relationships between key classes in **Byte Breakers 3D**:
 
-                    ^
-                    |
-+--------------------+         +--------------------+
-|   PlayerMovement   |         | GameOverManager    |
-+--------------------+         +--------------------+
-| - moveSpeed        |         | + RestartGame()    |
-| - rotationSpeed    |         | + QuitGame()       |
-| + MovePlayer()     |         +--------------------+
-
-                    ^
-                    |
-+--------------------+
-|  PlayerAlignment   |
-+--------------------+
-| + AlignToGround()  |
-+--------------------+
+![UML Diagram](README_pics/uml-diagram.png)
 
 # **Playtesting 🕹️**
 
