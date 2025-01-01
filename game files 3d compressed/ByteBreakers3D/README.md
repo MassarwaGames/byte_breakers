@@ -1,6 +1,6 @@
 # 🎮 **BYTE BREAKERS 3D**
 
-![Game Preview](assets/game-preview.png) <!-- Replace with your actual image path -->
+![Game Preview](README_pics/game-preview.png) <!-- Replace with your actual image path -->
 
 Welcome to the **3D Adventure Game**, a dynamic and immersive experience where players interact with a rich environment to solve puzzles, complete objectives, and uncover new possibilities. 🌟
 
