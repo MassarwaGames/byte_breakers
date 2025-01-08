@@ -25,7 +25,6 @@ public class UIManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = "Score: " + score;
-        }
     }
 
     public void InitializeUI()
