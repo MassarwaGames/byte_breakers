@@ -37,7 +37,7 @@
    - Introduces Stone Enemies weak to explosives.
 
 **Image Placeholder**:
-![Map Layout](link-to-map-image)
+![Map Layout](README_pics/map.png)
 
 ---
 
